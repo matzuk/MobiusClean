@@ -1,7 +1,9 @@
-package com.matsyuk.mobiusclean;
+package com.matsyuk.mobiusclean.clean;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.matsyuk.mobiusclean.R;
 
 public class MainActivity extends AppCompatActivity {
 
