@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:text="@string/fmt_license_name" />
+
+    <TextView
+        android:id="@+id/license_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="Text"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/btn_next" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:background="@color/colorGreen"
+        android:text="@string/fmt_license_agree" />
+
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:text="@string/fmt_account_registration_name" />
+
+    <EditText
+        android:id="@+id/et_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/fmt_account_registration_et_mail_hint"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_mail"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="textPassword"
+        android:hint="@string/fmt_account_registration_et_password_hint"/>
+
+    <EditText
+        android:id="@+id/et_password_retry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_password"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="textPassword"
+        android:hint="@string/fmt_account_registration_et_retry_password_hint"/>
+
+    <Button
+        android:id="@+id/btn_registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_password_retry"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:text="@string/fmt_account_registration_btn_reg" />
+
+</RelativeLayout>
