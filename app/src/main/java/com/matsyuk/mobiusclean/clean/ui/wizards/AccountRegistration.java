@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui;
+package com.matsyuk.mobiusclean.clean.ui.wizards;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -12,12 +12,12 @@ import com.matsyuk.mobiusclean.R;
 /**
  * @author e.matsyuk
  */
-public class AccountLogin extends Fragment {
+public class AccountRegistration extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fmt_account_login, container, false);
+        return inflater.inflate(R.layout.fmt_account_registration, container, false);
     }
 
 }

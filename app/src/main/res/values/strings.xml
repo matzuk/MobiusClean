@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MobiusClean</string>
 
+    <string name="ac_start_wizard_title">Start wizard</string>
+    <string name="ac_app_lock_wizard_title">App lock wizard</string>
+
     <string name="ac_main_btn_start">Start wizard</string>
     <string name="ac_main_btn_lock">App lock wizard</string>
 

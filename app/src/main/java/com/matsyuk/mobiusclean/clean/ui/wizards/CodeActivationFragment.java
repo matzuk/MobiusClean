@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui;
+package com.matsyuk.mobiusclean.clean.ui.wizards;
 
 import android.app.Fragment;
 import android.os.Bundle;

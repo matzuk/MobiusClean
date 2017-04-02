@@ -22,7 +22,7 @@
         <activity android:name=".clean.ui.start.views.StartActivity">
         </activity>
 
-        <activity android:name=".clean.ui.app_lock.AppLockActivity">
+        <activity android:name=".clean.ui.app_lock.views.AppLockActivity">
         </activity>
     </application>
 
