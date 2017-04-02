@@ -40,7 +40,6 @@ public class ComponentManager {
         if (mainComponent == null) {
             mainComponent = getAppComponent()
                     .mainComponentBuilder()
-                    .mainModule(new MainModule())
                     .build();
         }
         return mainComponent;

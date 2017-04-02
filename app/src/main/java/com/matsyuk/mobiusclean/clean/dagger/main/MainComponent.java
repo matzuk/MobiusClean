@@ -8,12 +8,11 @@ import dagger.Subcomponent;
  * @author e.matsyuk
  */
 @MainScope
-@Subcomponent(modules = MainModule.class)
+@Subcomponent(modules = {MainModule.class, NavigationModule.class})
 public interface MainComponent {
 
     @Subcomponent.Builder
     interface Builder {
-        MainComponent.Builder mainModule(MainModule mainModule);
         MainComponent build();
     }
 
