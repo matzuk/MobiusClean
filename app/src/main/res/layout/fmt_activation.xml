@@ -24,7 +24,7 @@
         android:gravity="top|center_horizontal"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
-        android:text="Text"
+        android:text="@string/fmt_activation_text"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         android:layout_below="@+id/header"
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_above="@+id/btn_login"
+        android:layout_above="@+id/btn_free"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:textColor="@color/colorBlack"
@@ -55,7 +55,7 @@
         android:text="@string/fmt_activation_btn_personal_account" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_free"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

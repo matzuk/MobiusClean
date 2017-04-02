@@ -9,11 +9,15 @@
 
     <string name="fmt_info_name">Information</string>
     <string name="fmt_info_next">Next</string>
+    <string name="fmt_info_text_start">Hello! \n This is start information!</string>
+    <string name="fmt_info_text_finish">Comrade! \n In God we trust!</string>
 
     <string name="fmt_license_name">License</string>
     <string name="fmt_license_agree">Agree and continue</string>
+    <string name="fmt_license_text">This is very important license text! \nRead attentively!!! \nBla-bla-bla</string>
 
     <string name="fmt_activation_name">Activation</string>
+    <string name="fmt_activation_text">Please choose way of activation</string>
     <string name="fmt_activation_btn_code">Enter activation code</string>
     <string name="fmt_activation_btn_personal_account">To personal account</string>
     <string name="fmt_activation_btn_free">Free</string>

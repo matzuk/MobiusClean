@@ -9,9 +9,10 @@ import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.app_lock.views.AppLockActivity;
 import com.matsyuk.mobiusclean.clean.ui.main.presenters.IMainPresenter;
-import com.matsyuk.mobiusclean.clean.ui.start.views.StartActivity;
+import com.matsyuk.mobiusclean.clean.ui.start_wizard.views.StartActivity;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     @Inject
     IMainPresenter mainPresenter;
     @Inject
+    @Named("main")
     NavigatorHolder navigatorHolder;
 
     private Navigator navigator = command -> {

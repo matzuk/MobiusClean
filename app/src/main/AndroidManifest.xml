@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".clean.ui.start.views.StartActivity">
+        <activity android:name=".clean.ui.start_wizard.views.StartActivity">
         </activity>
 
         <activity android:name=".clean.ui.app_lock.views.AppLockActivity">

@@ -18,7 +18,7 @@
         android:text="@string/fmt_info_name" />
 
     <TextView
-        android:id="@+id/license_text"
+        android:id="@+id/info_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

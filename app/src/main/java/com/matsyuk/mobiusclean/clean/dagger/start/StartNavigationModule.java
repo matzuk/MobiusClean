@@ -1,4 +1,6 @@
-package com.matsyuk.mobiusclean.clean.dagger.main;
+package com.matsyuk.mobiusclean.clean.dagger.start;
+
+import com.matsyuk.mobiusclean.clean.dagger.main.MainScope;
 
 import javax.inject.Named;
 
@@ -12,24 +14,24 @@ import ru.terrakok.cicerone.Router;
  * @author e.matsyuk
  */
 @Module
-public class NavigationModule {
+public class StartNavigationModule {
 
     private Cicerone<Router> cicerone;
 
-    public NavigationModule() {
+    public StartNavigationModule() {
         cicerone = Cicerone.create();
     }
 
     @Provides
-    @MainScope
-    @Named("main")
+    @StartScope
+    @Named("start_wizard")
     Router provideRouter() {
         return cicerone.getRouter();
     }
 
     @Provides
-    @MainScope
-    @Named("main")
+    @StartScope
+    @Named("start_wizard")
     NavigatorHolder provideNavigatorHolder() {
         return cicerone.getNavigatorHolder();
     }
