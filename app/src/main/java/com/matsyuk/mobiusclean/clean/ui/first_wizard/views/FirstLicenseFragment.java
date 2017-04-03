@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.start_wizard.views;
+package com.matsyuk.mobiusclean.clean.ui.first_wizard.views;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,19 +13,22 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.views.LicenseFrag
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.FIRST_NAMED_ANNOTATION;
+
+
 /**
  * @author e.matsyuk
  */
-public class StartLicenseFragment extends LicenseFragment {
+public class FirstLicenseFragment extends LicenseFragment {
 
     @Inject
-    @Named("start_wizard")
+    @Named(FIRST_NAMED_ANNOTATION)
     ILicensePresenter licensePresenter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ComponentManager.getInstance().getStartComponent().inject(this);
+        ComponentManager.getInstance().getFirstComponent().inject(this);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

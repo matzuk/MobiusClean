@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.start_wizard.managers;
+package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
 
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.wizard_part.IActivationWizardPart;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.wizard_part.IInfoWizardPart;
@@ -6,19 +6,19 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.wizard_part.ILice
 
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.utils.ScreenNames.*;
+import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.*;
 
 /**
  * @author e.matsyuk
  */
-public class StartWizardManager implements IInfoWizardPart, ILicenseWizardPart, IActivationWizardPart {
+public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, IActivationWizardPart {
 
     private Router router;
 
     // TODO move to DI
-    private StartState startState = new StartState(StartStage.START_INFO);
+    private FirstWizardState firstWizardState = new FirstWizardState(FirstWizardStage.START_INFO);
 
-    public StartWizardManager(Router router) {
+    public FirstWizardManager(Router router) {
         this.router = router;
         router.navigateTo(WIZARD_INFO_START_SCREEN);
     }
@@ -29,10 +29,10 @@ public class StartWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void infoWizardNext() {
-        if (startState.getStartStage() == StartStage.START_INFO) {
-            startState.setStartStage(StartStage.LICENSE);
+        if (firstWizardState.getFirstWizardStage() == FirstWizardStage.START_INFO) {
+            firstWizardState.setFirstWizardStage(FirstWizardStage.LICENSE);
             router.navigateTo(WIZARD_LICENSE_SCREEN);
-        } else if (startState.getStartStage() == StartStage.FINISH_INFO) {
+        } else if (firstWizardState.getFirstWizardStage() == FirstWizardStage.FINISH_INFO) {
             router.exit();
         }
     }
@@ -48,12 +48,13 @@ public class StartWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void licenseWizardAccept() {
-
+        firstWizardState.setFirstWizardStage(FirstWizardStage.ACTIVATION);
+        router.navigateTo(WIZARD_ACTIVATION_SCREEN);
     }
 
     @Override
     public void licenseWizardBack() {
-        startState.setStartStage(StartStage.START_INFO);
+        firstWizardState.setFirstWizardStage(FirstWizardStage.START_INFO);
         router.backTo(WIZARD_INFO_START_SCREEN);
     }
 
@@ -78,7 +79,8 @@ public class StartWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void activationWizardBack() {
-
+        firstWizardState.setFirstWizardStage(FirstWizardStage.LICENSE);
+        router.backTo(WIZARD_LICENSE_SCREEN);
     }
 
 }

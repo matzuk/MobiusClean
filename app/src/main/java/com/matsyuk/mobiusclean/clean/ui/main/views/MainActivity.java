@@ -9,7 +9,7 @@ import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.app_lock.views.AppLockActivity;
 import com.matsyuk.mobiusclean.clean.ui.main.presenters.IMainPresenter;
-import com.matsyuk.mobiusclean.clean.ui.start_wizard.views.StartActivity;
+import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
             // create intent
             Intent activityIntent = null;
             if (forward.getScreenKey().equals(START_WIZARD)) {
-                activityIntent = new Intent(MainActivity.this, StartActivity.class);
+                activityIntent = new Intent(MainActivity.this, FirstActivity.class);
             } else if (forward.getScreenKey().equals(APP_LOCK_WIZARD)) {
                 activityIntent = new Intent(MainActivity.this, AppLockActivity.class);
             }

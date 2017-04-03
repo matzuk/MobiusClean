@@ -3,8 +3,7 @@ package com.matsyuk.mobiusclean.clean.dagger;
 import com.matsyuk.mobiusclean.clean.dagger.app.AppComponent;
 import com.matsyuk.mobiusclean.clean.dagger.app.DaggerAppComponent;
 import com.matsyuk.mobiusclean.clean.dagger.main.MainComponent;
-import com.matsyuk.mobiusclean.clean.dagger.main.MainModule;
-import com.matsyuk.mobiusclean.clean.dagger.start.StartComponent;
+import com.matsyuk.mobiusclean.clean.dagger.first_wizard.FirstComponent;
 
 /**
  * @author e.matsyuk
@@ -15,7 +14,7 @@ public class ComponentManager {
 
     private AppComponent appComponent;
     private MainComponent mainComponent;
-    private StartComponent startComponent;
+    private FirstComponent firstComponent;
 
     public static ComponentManager getInstance() {
         if (instance == null) {
@@ -47,17 +46,17 @@ public class ComponentManager {
         return mainComponent;
     }
 
-    public StartComponent getStartComponent() {
-        if (startComponent == null) {
-            startComponent = getMainComponent()
+    public FirstComponent getFirstComponent() {
+        if (firstComponent == null) {
+            firstComponent = getMainComponent()
                     .startComponentBuilder()
                     .build();
         }
-        return startComponent;
+        return firstComponent;
     }
 
-    public void clearStartComponent() {
-        startComponent = null;
+    public void clearFirstComponent() {
+        firstComponent = null;
     }
 
 }

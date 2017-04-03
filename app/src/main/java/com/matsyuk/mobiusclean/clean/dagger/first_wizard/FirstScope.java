@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.dagger.start;
+package com.matsyuk.mobiusclean.clean.dagger.first_wizard;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -13,5 +13,5 @@ import javax.inject.Scope;
 @Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface StartScope {
+public @interface FirstScope {
 }

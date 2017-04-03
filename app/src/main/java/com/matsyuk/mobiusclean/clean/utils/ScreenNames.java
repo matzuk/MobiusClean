@@ -6,10 +6,7 @@ package com.matsyuk.mobiusclean.clean.utils;
 
 public class ScreenNames {
 
-    public static final String START_WIZARD = "StartWizardManager";
+    public static final String START_WIZARD = "FirstWizardManager";
     public static final String APP_LOCK_WIZARD = "AppLockWizard";
-
-    public static final String WIZARD_INFO_START_SCREEN = "InfoStartScreen";
-    public static final String WIZARD_LICENSE_SCREEN = "LicenseScreen";
 
 }

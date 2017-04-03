@@ -1,6 +1,6 @@
 package com.matsyuk.mobiusclean.clean.dagger.main;
 
-import com.matsyuk.mobiusclean.clean.dagger.start.StartComponent;
+import com.matsyuk.mobiusclean.clean.dagger.first_wizard.FirstComponent;
 import com.matsyuk.mobiusclean.clean.ui.main.views.MainActivity;
 
 import dagger.Subcomponent;
@@ -17,7 +17,7 @@ public interface MainComponent {
         MainComponent build();
     }
 
-    StartComponent.Builder startComponentBuilder();
+    FirstComponent.Builder startComponentBuilder();
 
     void inject(MainActivity mainActivity);
 
