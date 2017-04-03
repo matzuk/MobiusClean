@@ -23,14 +23,14 @@ public class FirstNavigationModule {
     }
 
     @Provides
-    @FirstScope
+    @WizardScope
     @Named(FIRST_NAMED_ANNOTATION)
     Router provideRouter() {
         return cicerone.getRouter();
     }
 
     @Provides
-    @FirstScope
+    @WizardScope
     @Named(FIRST_NAMED_ANNOTATION)
     NavigatorHolder provideNavigatorHolder() {
         return cicerone.getNavigatorHolder();

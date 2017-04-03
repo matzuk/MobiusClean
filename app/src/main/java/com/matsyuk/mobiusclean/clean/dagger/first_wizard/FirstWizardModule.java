@@ -27,7 +27,7 @@ public class FirstWizardModule {
      * Managers
      */
 
-    @FirstScope
+    @WizardScope
     @Provides
     public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router) {
         return new FirstWizardManager(router);
@@ -37,28 +37,28 @@ public class FirstWizardModule {
      * Presenters
      */
 
-    @FirstScope
+    @WizardScope
     @Provides
     @Named(FIRST_INFO_START_NAMED_ANNOTATION)
     public IInfoPresenter provideInfoPresenterStart(FirstWizardManager firstWizardManager) {
         return new InfoPresenter(firstWizardManager, START);
     }
 
-    @FirstScope
+    @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
     public ILicensePresenter provideLicensePresenter(FirstWizardManager firstWizardManager) {
         return new LicensePresenter(firstWizardManager);
     }
 
-    @FirstScope
+    @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
     public IActivationPresenter provideActivationPresenter(FirstWizardManager firstWizardManager) {
         return new ActivationPresenter(firstWizardManager);
     }
 
-    @FirstScope
+    @WizardScope
     @Provides
     @Named(FIRST_INFO_FINISH_NAMED_ANNOTATION)
     public IInfoPresenter provideInfoPresenterFinish(FirstWizardManager firstWizardManager) {

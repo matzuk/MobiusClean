@@ -11,7 +11,7 @@ import dagger.Subcomponent;
 /**
  * @author e.matsyuk
  */
-@FirstScope
+@WizardScope
 @Subcomponent(modules = {FirstWizardModule.class, FirstNavigationModule.class})
 public interface FirstComponent {
 
