@@ -33,7 +33,7 @@ public class LicensePresenter implements ILicensePresenter {
     }
 
     @Override
-    public void onBackClick() {
+    public void clickBack() {
         licenseWizardPart.licenseWizardBack();
     }
 

@@ -27,7 +27,7 @@ public abstract class InfoFragment extends Fragment implements IInfoView, BackBu
         View view = inflater.inflate(R.layout.fmt_info, container, false);
         infoText = (TextView)view.findViewById(R.id.info_text);
         nextButton = (Button)view.findViewById(R.id.btn_next);
-        nextButton.setOnClickListener(v -> getPresenter().onNextClick());
+        nextButton.setOnClickListener(v -> getPresenter().clickNext());
 
         return view;
     }
@@ -50,7 +50,7 @@ public abstract class InfoFragment extends Fragment implements IInfoView, BackBu
 
     @Override
     public boolean onBackPressed() {
-        getPresenter().onBackClick();
+        getPresenter().clickBack();
         return true;
     }
 

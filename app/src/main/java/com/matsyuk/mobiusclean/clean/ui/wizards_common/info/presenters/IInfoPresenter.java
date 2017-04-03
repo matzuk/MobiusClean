@@ -10,7 +10,7 @@ public interface IInfoPresenter {
     void bindView(IInfoView infoView);
     void unbindView();
 
-    void onNextClick();
-    void onBackClick();
+    void clickNext();
+    void clickBack();
 
 }

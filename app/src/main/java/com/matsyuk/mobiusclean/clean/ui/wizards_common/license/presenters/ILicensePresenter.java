@@ -11,6 +11,6 @@ public interface ILicensePresenter {
     void unbindView();
 
     void acceptLicense();
-    void onBackClick();
+    void clickBack();
 
 }

@@ -33,12 +33,12 @@ public class InfoPresenter implements IInfoPresenter {
     }
 
     @Override
-    public void onNextClick() {
+    public void clickNext() {
         wizardPart.infoWizardNext();
     }
 
     @Override
-    public void onBackClick() {
+    public void clickBack() {
         wizardPart.infoWizardBack();
     }
 
