@@ -40,7 +40,7 @@ public class FirstWizardModule {
     @FirstScope
     @Provides
     @Named(FIRST_INFO_START_NAMED_ANNOTATION)
-    public IInfoPresenter provideInfoPresenter(FirstWizardManager firstWizardManager) {
+    public IInfoPresenter provideInfoPresenterStart(FirstWizardManager firstWizardManager) {
         return new InfoPresenter(firstWizardManager, START);
     }
 
@@ -56,6 +56,13 @@ public class FirstWizardModule {
     @Named(FIRST_NAMED_ANNOTATION)
     public IActivationPresenter provideActivationPresenter(FirstWizardManager firstWizardManager) {
         return new ActivationPresenter(firstWizardManager);
+    }
+
+    @FirstScope
+    @Provides
+    @Named(FIRST_INFO_FINISH_NAMED_ANNOTATION)
+    public IInfoPresenter provideInfoPresenterFinish(FirstWizardManager firstWizardManager) {
+        return new InfoPresenter(firstWizardManager, FINISH);
     }
 
 }

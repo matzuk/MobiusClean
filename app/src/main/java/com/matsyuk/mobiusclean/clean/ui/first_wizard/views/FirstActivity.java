@@ -35,11 +35,13 @@ public class FirstActivity extends AppCompatActivity {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
             if (screenKey.equals(WIZARD_INFO_START_SCREEN)) {
-                return new FirstInfoFragment();
+                return new FirstInfoStartFragment();
             } else if (screenKey.equals(WIZARD_LICENSE_SCREEN)) {
                 return new FirstLicenseFragment();
             } else if (screenKey.equals(WIZARD_ACTIVATION_SCREEN)) {
                 return new FirstActivationFragment();
+            } else if (screenKey.equals(WIZARD_INFO_FINISH_SCREEN)) {
+                return new FirstInfoFinishFragment();
             }
             return null;
         }

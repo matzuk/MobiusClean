@@ -33,13 +33,13 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
             firstWizardState.setFirstWizardStage(FirstWizardStage.LICENSE);
             router.navigateTo(WIZARD_LICENSE_SCREEN);
         } else if (firstWizardState.getFirstWizardStage() == FirstWizardStage.FINISH_INFO) {
-            router.exit();
+            router.finishChain();
         }
     }
 
     @Override
     public void infoWizardBack() {
-        router.exit();
+        router.finishChain();
     }
 
     /**
@@ -74,7 +74,8 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void activationWizardFreeNext() {
-
+        firstWizardState.setFirstWizardStage(FirstWizardStage.FINISH_INFO);
+        router.navigateTo(WIZARD_INFO_FINISH_SCREEN);
     }
 
     @Override

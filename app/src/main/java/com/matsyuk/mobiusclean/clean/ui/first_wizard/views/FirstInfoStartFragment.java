@@ -18,7 +18,7 @@ import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants
 /**
  * @author e.matsyuk
  */
-public class FirstInfoFragment extends InfoFragment {
+public class FirstInfoStartFragment extends InfoFragment {
 
     @Inject
     @Named(FIRST_INFO_START_NAMED_ANNOTATION)
