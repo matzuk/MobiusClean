@@ -3,7 +3,7 @@ package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
 /**
  * @author e.matsyuk
  */
-public enum FirstWizardStage {
+public enum FirstStage {
     START_INFO,
     LICENSE,
     ACTIVATION,

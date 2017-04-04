@@ -1,5 +1,7 @@
 package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
+import com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first.FirstNavigationModule;
+import com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first.FirstWizardModule;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivationFragment;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivity;

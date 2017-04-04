@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
+package com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first;
 
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 

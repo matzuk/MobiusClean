@@ -10,6 +10,7 @@
     <string name="fmt_info_name">Information</string>
     <string name="fmt_info_next">Next</string>
     <string name="fmt_info_text_start">Hello! \n This is start information!</string>
+    <string name="fmt_info_text_login">This is login</string>
     <string name="fmt_info_text_finish">Comrade! \n In God we trust!</string>
 
     <string name="fmt_license_name">License</string>
@@ -40,4 +41,6 @@
     <string name="fmt_account_registration_et_password_hint">Enter your password</string>
     <string name="fmt_account_registration_et_retry_password_hint">Retry your password</string>
     <string name="fmt_account_registration_btn_reg">Registration</string>
+
+    <string name="ac_login_wizard_title">Login</string>
 </resources>

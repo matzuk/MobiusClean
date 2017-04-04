@@ -16,7 +16,7 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
     private Router router;
 
     // TODO move to DI
-    private FirstWizardState firstWizardState = new FirstWizardState(FirstWizardStage.START_INFO);
+    private FirstWizardState firstWizardState = new FirstWizardState(FirstStage.START_INFO);
 
     public FirstWizardManager(Router router) {
         this.router = router;
@@ -29,10 +29,10 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void infoWizardNext() {
-        if (firstWizardState.getFirstWizardStage() == FirstWizardStage.START_INFO) {
-            firstWizardState.setFirstWizardStage(FirstWizardStage.LICENSE);
+        if (firstWizardState.getFirstStage() == FirstStage.START_INFO) {
+            firstWizardState.setFirstStage(FirstStage.LICENSE);
             router.navigateTo(WIZARD_LICENSE_SCREEN);
-        } else if (firstWizardState.getFirstWizardStage() == FirstWizardStage.FINISH_INFO) {
+        } else if (firstWizardState.getFirstStage() == FirstStage.FINISH_INFO) {
             router.finishChain();
         }
     }
@@ -48,13 +48,13 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void licenseWizardAccept() {
-        firstWizardState.setFirstWizardStage(FirstWizardStage.ACTIVATION);
+        firstWizardState.setFirstStage(FirstStage.ACTIVATION);
         router.navigateTo(WIZARD_ACTIVATION_SCREEN);
     }
 
     @Override
     public void licenseWizardBack() {
-        firstWizardState.setFirstWizardStage(FirstWizardStage.START_INFO);
+        firstWizardState.setFirstStage(FirstStage.START_INFO);
         router.backTo(WIZARD_INFO_START_SCREEN);
     }
 
@@ -74,13 +74,13 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void activationWizardFreeNext() {
-        firstWizardState.setFirstWizardStage(FirstWizardStage.FINISH_INFO);
+        firstWizardState.setFirstStage(FirstStage.FINISH_INFO);
         router.navigateTo(WIZARD_INFO_FINISH_SCREEN);
     }
 
     @Override
     public void activationWizardBack() {
-        firstWizardState.setFirstWizardStage(FirstWizardStage.LICENSE);
+        firstWizardState.setFirstStage(FirstStage.LICENSE);
         router.backTo(WIZARD_LICENSE_SCREEN);
     }
 

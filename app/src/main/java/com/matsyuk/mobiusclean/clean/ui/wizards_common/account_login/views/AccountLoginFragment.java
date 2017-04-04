@@ -19,7 +19,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.
 /**
  * @author e.matsyuk
  */
-public abstract class AccountLogin extends Fragment implements IAccountLoginView, BackButtonListener {
+public abstract class AccountLoginFragment extends Fragment implements IAccountLoginView, BackButtonListener {
 
     private Button loginButton;
     private EditText loginInput;
@@ -65,9 +65,9 @@ public abstract class AccountLogin extends Fragment implements IAccountLoginView
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         getPresenter().unbindView();
-        super.onDestroy();
+        super.onDestroyView();
     }
 
     @Override

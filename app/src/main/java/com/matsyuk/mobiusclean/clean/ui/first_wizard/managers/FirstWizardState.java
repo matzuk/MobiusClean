@@ -5,18 +5,18 @@ package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
  */
 public class FirstWizardState {
 
-    private FirstWizardStage firstWizardStage;
+    private FirstStage firstStage;
 
-    public FirstWizardState(FirstWizardStage firstWizardStage) {
-        this.firstWizardStage = firstWizardStage;
+    public FirstWizardState(FirstStage firstStage) {
+        this.firstStage = firstStage;
     }
 
-    public void setFirstWizardStage(FirstWizardStage firstWizardStage) {
-        this.firstWizardStage = firstWizardStage;
+    public void setFirstStage(FirstStage firstStage) {
+        this.firstStage = firstStage;
     }
 
-    public FirstWizardStage getFirstWizardStage() {
-        return firstWizardStage;
+    public FirstStage getFirstStage() {
+        return firstStage;
     }
 
 }

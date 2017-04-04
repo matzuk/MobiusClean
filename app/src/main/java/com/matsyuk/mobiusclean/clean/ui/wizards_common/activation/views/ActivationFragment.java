@@ -47,9 +47,9 @@ public abstract class ActivationFragment extends Fragment implements IActivation
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         getPresenter().unbindView();
-        super.onDestroy();
+        super.onDestroyView();
     }
 
     protected abstract IActivationPresenter getPresenter();

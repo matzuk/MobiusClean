@@ -43,9 +43,9 @@ public abstract class LicenseFragment extends Fragment implements ILicenseView, 
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         getPresenter().unbindView();
-        super.onDestroy();
+        super.onDestroyView();
     }
 
     protected abstract ILicensePresenter getPresenter();

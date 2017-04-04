@@ -5,5 +5,6 @@ package com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views;
  */
 public enum TextType {
     START,
-    FINISH
+    FINISH,
+    LOGIN
 }

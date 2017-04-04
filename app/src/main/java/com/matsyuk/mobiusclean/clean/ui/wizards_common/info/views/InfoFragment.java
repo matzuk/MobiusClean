@@ -44,6 +44,8 @@ public abstract class InfoFragment extends Fragment implements IInfoView, BackBu
             infoText.setText(getString(R.string.fmt_info_text_start));
         } else if (textType == TextType.FINISH) {
             infoText.setText(getString(R.string.fmt_info_text_finish));
+        } else if (textType == TextType.LOGIN) {
+            infoText.setText(getString(R.string.fmt_info_text_login));
         }
 
     }
@@ -55,9 +57,9 @@ public abstract class InfoFragment extends Fragment implements IInfoView, BackBu
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         getPresenter().unbindView();
-        super.onDestroy();
+        super.onDestroyView();
     }
 
     protected abstract IInfoPresenter getPresenter();

@@ -16,4 +16,7 @@ public class WizardConstants {
 
     public static final String LOGIN_NAMED_ANNOTATION = "login_wizard";
 
+    public static final String LOGIN_INFO_SCREEN = "LoginInfoScreen";
+    public static final String LOGIN_ACTIVATION_SCREEN = "LoginActivationScreen";
+
 }
