@@ -3,6 +3,7 @@ package com.matsyuk.mobiusclean.clean.dagger.wizards_sub_login;
 import com.matsyuk.mobiusclean.clean.business.auth.IAuthInteractor;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.AccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
@@ -32,8 +33,9 @@ public class LoginWizardModule {
 
     @WizardScope
     @Provides
-    public LoginWizardManager provideLoginWizardManager(@Named(LOGIN_NAMED_ANNOTATION) Router router) {
-        return new LoginWizardManager(router);
+    public LoginWizardManager provideLoginWizardManager(@Named(LOGIN_NAMED_ANNOTATION) Router router,
+                                                        ILoginWizardResult loginWizardResult) {
+        return new LoginWizardManager(router, loginWizardResult);
     }
 
     /**

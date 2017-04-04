@@ -13,12 +13,14 @@ import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstant
 public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardPart {
 
     private Router router;
+    private ILoginWizardResult loginWizardResult;
 
     // TODO move to DI
     private LoginWizardState loginWizardState = new LoginWizardState(LoginStage.INFO);
 
-    public LoginWizardManager(Router router) {
+    public LoginWizardManager(Router router, ILoginWizardResult loginWizardResult) {
         this.router = router;
+        this.loginWizardResult = loginWizardResult;
         router.navigateTo(LOGIN_INFO_SCREEN);
     }
 
@@ -44,11 +46,13 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
     @Override
     public void accountLoginWizardSuccess() {
         router.finishChain();
+        loginWizardResult.onSuccess();
     }
 
     @Override
     public void accountLoginWizardBack() {
         router.finishChain();
+        loginWizardResult.onBack();
     }
 
     @Override

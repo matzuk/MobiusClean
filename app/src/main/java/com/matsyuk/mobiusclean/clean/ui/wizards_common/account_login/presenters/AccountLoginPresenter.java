@@ -78,7 +78,7 @@ public class AccountLoginPresenter implements IAccountLoginPresenter {
     public void inputData(Observable<String> loginObservable, Observable<String> passwordObservable) {
         Disposable disposable = Observable.combineLatest(loginObservable, passwordObservable,
                 (login, password) -> !login.isEmpty() && !password.isEmpty())
-                .subscribe();
+                .subscribe(accountLoginView::loginEnabled, throwable -> {});
         compositeDisposable.add(disposable);
     }
 

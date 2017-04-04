@@ -1,5 +1,6 @@
 package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
 
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.wizard_part.IActivationWizardPart;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.wizard_part.IInfoWizardPart;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.wizard_part.ILicenseWizardPart;
@@ -11,7 +12,7 @@ import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstant
 /**
  * @author e.matsyuk
  */
-public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, IActivationWizardPart {
+public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, IActivationWizardPart, ILoginWizardResult {
 
     private Router router;
 
@@ -69,7 +70,7 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void activationWizardPersonalAccountNext() {
-
+        router.navigateTo(WIZARD_START_LOGIN_SCREEN);
     }
 
     @Override
@@ -84,4 +85,19 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
         router.backTo(WIZARD_LICENSE_SCREEN);
     }
 
+    /**
+     * ILoginWizardResult
+     */
+
+    @Override
+    public void onSuccess() {
+        firstWizardState.setFirstStage(FirstStage.FINISH_INFO);
+        router.navigateTo(WIZARD_INFO_FINISH_SCREEN);
+    }
+
+    @Override
+    public void onBack() {
+        firstWizardState.setFirstStage(FirstStage.ACTIVATION);
+        router.backTo(WIZARD_ACTIVATION_SCREEN);
+    }
 }

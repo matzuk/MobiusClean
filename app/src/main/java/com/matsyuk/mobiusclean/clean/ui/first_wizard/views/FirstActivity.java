@@ -1,5 +1,6 @@
 package com.matsyuk.mobiusclean.clean.ui.first_wizard.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import javax.inject.Named;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
+import ru.terrakok.cicerone.commands.Command;
+import ru.terrakok.cicerone.commands.Forward;
 
 import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
 
@@ -32,6 +35,19 @@ public class FirstActivity extends AppCompatActivity {
     FirstWizardManager firstWizardManager;
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
+        @Override
+        public void applyCommand(Command command) {
+            if (command instanceof Forward) {
+                Forward forward = (Forward) command;
+                if (forward.getScreenKey().equals(WIZARD_START_LOGIN_SCREEN)) {
+                    Intent loginIntent = new Intent(FirstActivity.this, StartLoginActivity.class);
+                    startActivity(loginIntent);
+                    return;
+                }
+            }
+            super.applyCommand(command);
+        }
+
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
             if (screenKey.equals(WIZARD_INFO_START_SCREEN)) {

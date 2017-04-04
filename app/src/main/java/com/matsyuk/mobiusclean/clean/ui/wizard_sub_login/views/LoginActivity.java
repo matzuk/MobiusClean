@@ -2,11 +2,16 @@ package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,6 +31,14 @@ public abstract class LoginActivity extends AppCompatActivity {
     @Named(LOGIN_NAMED_ANNOTATION)
     NavigatorHolder navigatorHolder;
 
+    @Inject
+    @Named(LOGIN_NAMED_ANNOTATION)
+    IAccountLoginPresenter accountLoginPresenter;
+
+    @Inject
+    @Named(LOGIN_NAMED_ANNOTATION)
+    IInfoPresenter infoPresenter;
+
     // TODO temp for first start
     @Inject
     LoginWizardManager loginWizardManager;
@@ -34,9 +47,13 @@ public abstract class LoginActivity extends AppCompatActivity {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
             if (screenKey.equals(LOGIN_INFO_SCREEN)) {
-                return new LoginInfoFragment();
+                LoginInfoFragment loginInfoFragment = new LoginInfoFragment();
+                loginInfoFragment.setInfoPresenter(infoPresenter);
+                return loginInfoFragment;
             } else if (screenKey.equals(LOGIN_ACTIVATION_SCREEN)) {
-                return new LoginAccountLoginFragment();
+                LoginAccountLoginFragment loginAccountLoginFragment = new LoginAccountLoginFragment();
+                loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
+                return loginAccountLoginFragment;
             }
             return null;
         }
@@ -58,6 +75,33 @@ public abstract class LoginActivity extends AppCompatActivity {
         injectActivity();
         setContentView(R.layout.ac_login);
         setTitle(getString(R.string.ac_login_wizard_title));
+    }
+
+    @Override
+    protected void onResumeFragments() {
+        reInjectFragments();
+        super.onResumeFragments();
+    }
+
+    @SuppressWarnings("RestrictedApi")
+    private void reInjectFragments() {
+        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        if (fragmentList == null) {
+            return;
+        }
+        for (int i = 0; i < fragmentList.size(); i++) {
+            Fragment fragment = fragmentList.get(i);
+            if (fragment instanceof LoginAccountLoginFragment) {
+                LoginAccountLoginFragment loginAccountLoginFragment =
+                        (LoginAccountLoginFragment)fragment;
+                loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
+            } else if (fragment instanceof LoginInfoFragment) {
+                LoginInfoFragment loginInfoFragment =
+                        (LoginInfoFragment)fragment;
+                loginInfoFragment.setInfoPresenter(infoPresenter);
+            }
+        }
+
     }
 
     @Override

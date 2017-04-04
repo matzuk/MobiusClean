@@ -3,11 +3,14 @@ package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 import com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first.FirstNavigationModule;
 import com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first.FirstWizardModule;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
+import com.matsyuk.mobiusclean.clean.dagger.wizards_sub_login.LoginNavigationModule;
+import com.matsyuk.mobiusclean.clean.dagger.wizards_sub_login.LoginWizardModule;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivationFragment;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivity;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstInfoFinishFragment;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstInfoStartFragment;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstLicenseFragment;
+import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.StartLoginActivity;
 
 import dagger.Subcomponent;
 
@@ -15,7 +18,8 @@ import dagger.Subcomponent;
  * @author e.matsyuk
  */
 @WizardScope
-@Subcomponent(modules = {FirstWizardModule.class, FirstNavigationModule.class})
+@Subcomponent(modules = {FirstWizardModule.class, FirstNavigationModule.class,
+        LoginWizardModule.class, LoginNavigationModule.class})
 public interface FirstComponent {
 
     @Subcomponent.Builder
@@ -28,5 +32,6 @@ public interface FirstComponent {
     void inject(FirstLicenseFragment firstLicenseFragment);
     void inject(FirstActivationFragment firstActivationFragment);
     void inject(FirstInfoFinishFragment firstInfoFinishFragment);
+    void inject(StartLoginActivity startLoginActivity);
 
 }

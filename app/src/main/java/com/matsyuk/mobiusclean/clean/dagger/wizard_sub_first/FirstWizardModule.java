@@ -2,6 +2,7 @@ package com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first;
 
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.ActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
@@ -11,6 +12,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.Licens
 
 import javax.inject.Named;
 
+import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
 import ru.terrakok.cicerone.Router;
@@ -32,6 +34,12 @@ public class FirstWizardModule {
     @Provides
     public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router) {
         return new FirstWizardManager(router);
+    }
+
+    @WizardScope
+    @Provides
+    public ILoginWizardResult provideLoginWizardResult(Lazy<FirstWizardManager> firstWizardManagerLazy) {
+        return firstWizardManagerLazy.get();
     }
 
     /**

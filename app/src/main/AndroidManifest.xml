@@ -24,6 +24,9 @@
 
         <activity android:name=".clean.ui.app_lock.views.AppLockActivity">
         </activity>
+
+        <activity android:name=".clean.ui.first_wizard.views.StartLoginActivity">
+        </activity>
     </application>
 
 </manifest>

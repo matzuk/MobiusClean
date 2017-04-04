@@ -20,15 +20,18 @@ import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstant
  */
 public class LoginAccountLoginFragment extends AccountLoginFragment {
 
-    @Inject
-    @Named(LOGIN_NAMED_ANNOTATION)
-    IAccountLoginPresenter accountLoginPresenter;
+    private IAccountLoginPresenter accountLoginPresenter;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        ComponentManager.getInstance().getFirstComponent().inject(this);
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public void setAccountLoginPresenter(IAccountLoginPresenter accountLoginPresenter) {
+        this.accountLoginPresenter = accountLoginPresenter;
     }
 
     @Override
