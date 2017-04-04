@@ -5,7 +5,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.wizard_part.IInfoWiz
 
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk
@@ -21,7 +21,7 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
     public LoginWizardManager(Router router, ILoginWizardResult loginWizardResult) {
         this.router = router;
         this.loginWizardResult = loginWizardResult;
-        router.navigateTo(LOGIN_INFO_SCREEN);
+        router.navigateTo(WIZARD_LOGIN_INFO_SCREEN);
     }
 
     /**
@@ -31,7 +31,7 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
     @Override
     public void infoWizardNext() {
         loginWizardState.setLoginStage(LoginStage.LOGIN);
-        router.navigateTo(LOGIN_ACTIVATION_SCREEN);
+        router.navigateTo(WIZARD_LOGIN_LOGIN_SCREEN);
     }
 
     @Override

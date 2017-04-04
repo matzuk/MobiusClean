@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
+package com.matsyuk.mobiusclean.clean.ui.wizard_first.managers;
 
 /**
  * @author e.matsyuk

@@ -2,7 +2,6 @@ package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.matsyuk.mobiusclean.R;
@@ -20,7 +19,8 @@ import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.*;
+import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk
@@ -46,11 +46,11 @@ public abstract class LoginActivity extends AppCompatActivity {
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
-            if (screenKey.equals(LOGIN_INFO_SCREEN)) {
+            if (screenKey.equals(WIZARD_LOGIN_INFO_SCREEN)) {
                 LoginInfoFragment loginInfoFragment = new LoginInfoFragment();
                 loginInfoFragment.setInfoPresenter(infoPresenter);
                 return loginInfoFragment;
-            } else if (screenKey.equals(LOGIN_ACTIVATION_SCREEN)) {
+            } else if (screenKey.equals(WIZARD_LOGIN_LOGIN_SCREEN)) {
                 LoginAccountLoginFragment loginAccountLoginFragment = new LoginAccountLoginFragment();
                 loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
                 return loginAccountLoginFragment;

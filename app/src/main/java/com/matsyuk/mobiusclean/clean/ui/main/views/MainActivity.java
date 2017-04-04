@@ -9,7 +9,7 @@ import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.app_lock.views.AppLockActivity;
 import com.matsyuk.mobiusclean.clean.ui.main.presenters.IMainPresenter;
-import com.matsyuk.mobiusclean.clean.ui.first_wizard.views.FirstActivity;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.views.FirstActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;

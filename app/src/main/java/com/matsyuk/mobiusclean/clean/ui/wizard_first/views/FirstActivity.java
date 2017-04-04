@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.first_wizard.views;
+package com.matsyuk.mobiusclean.clean.ui.wizard_first.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
-import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardManager;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,7 +19,8 @@ import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 import ru.terrakok.cicerone.commands.Command;
 import ru.terrakok.cicerone.commands.Forward;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.*;
+import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk
@@ -39,8 +40,8 @@ public class FirstActivity extends AppCompatActivity {
         public void applyCommand(Command command) {
             if (command instanceof Forward) {
                 Forward forward = (Forward) command;
-                if (forward.getScreenKey().equals(WIZARD_START_LOGIN_SCREEN)) {
-                    Intent loginIntent = new Intent(FirstActivity.this, StartLoginActivity.class);
+                if (forward.getScreenKey().equals(WIZARD_FIRST_ACCOUNT_SUB_WIZARD)) {
+                    Intent loginIntent = new Intent(FirstActivity.this, FirstLoginActivity.class);
                     startActivity(loginIntent);
                     return;
                 }
@@ -50,13 +51,13 @@ public class FirstActivity extends AppCompatActivity {
 
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
-            if (screenKey.equals(WIZARD_INFO_START_SCREEN)) {
+            if (screenKey.equals(WIZARD_FIRST_INFO_START_SCREEN)) {
                 return new FirstInfoStartFragment();
-            } else if (screenKey.equals(WIZARD_LICENSE_SCREEN)) {
+            } else if (screenKey.equals(WIZARD_FIRST_LICENSE_SCREEN)) {
                 return new FirstLicenseFragment();
-            } else if (screenKey.equals(WIZARD_ACTIVATION_SCREEN)) {
+            } else if (screenKey.equals(WIZARD_FIRST_ACTIVATION_SCREEN)) {
                 return new FirstActivationFragment();
-            } else if (screenKey.equals(WIZARD_INFO_FINISH_SCREEN)) {
+            } else if (screenKey.equals(WIZARD_FIRST_INFO_FINISH_SCREEN)) {
                 return new FirstInfoFinishFragment();
             }
             return null;

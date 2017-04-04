@@ -10,7 +10,7 @@ import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.*;
 
 /**
  * @author e.matsyuk

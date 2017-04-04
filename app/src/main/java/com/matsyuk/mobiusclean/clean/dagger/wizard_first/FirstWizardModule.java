@@ -1,7 +1,7 @@
-package com.matsyuk.mobiusclean.clean.dagger.wizard_sub_first;
+package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
-import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardManager;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.ActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
@@ -17,7 +17,7 @@ import dagger.Module;
 import dagger.Provides;
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.*;
 import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextType.*;
 
 /**
@@ -35,6 +35,10 @@ public class FirstWizardModule {
     public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router) {
         return new FirstWizardManager(router);
     }
+
+    /**
+     * Listeners for children
+     */
 
     @WizardScope
     @Provides

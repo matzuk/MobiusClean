@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.first_wizard.managers;
+package com.matsyuk.mobiusclean.clean.ui.wizard_first.managers;
 
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.wizard_part.IActivationWizardPart;
@@ -7,7 +7,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.wizard_part.ILice
 
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk
@@ -21,7 +21,7 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     public FirstWizardManager(Router router) {
         this.router = router;
-        router.navigateTo(WIZARD_INFO_START_SCREEN);
+        router.navigateTo(WIZARD_FIRST_INFO_START_SCREEN);
     }
 
     /**
@@ -32,7 +32,7 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
     public void infoWizardNext() {
         if (firstWizardState.getFirstStage() == FirstStage.START_INFO) {
             firstWizardState.setFirstStage(FirstStage.LICENSE);
-            router.navigateTo(WIZARD_LICENSE_SCREEN);
+            router.navigateTo(WIZARD_FIRST_LICENSE_SCREEN);
         } else if (firstWizardState.getFirstStage() == FirstStage.FINISH_INFO) {
             router.finishChain();
         }
@@ -50,13 +50,13 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
     @Override
     public void licenseWizardAccept() {
         firstWizardState.setFirstStage(FirstStage.ACTIVATION);
-        router.navigateTo(WIZARD_ACTIVATION_SCREEN);
+        router.navigateTo(WIZARD_FIRST_ACTIVATION_SCREEN);
     }
 
     @Override
     public void licenseWizardBack() {
         firstWizardState.setFirstStage(FirstStage.START_INFO);
-        router.backTo(WIZARD_INFO_START_SCREEN);
+        router.backTo(WIZARD_FIRST_INFO_START_SCREEN);
     }
 
     /**
@@ -70,19 +70,19 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
 
     @Override
     public void activationWizardPersonalAccountNext() {
-        router.navigateTo(WIZARD_START_LOGIN_SCREEN);
+        router.navigateTo(WIZARD_FIRST_ACCOUNT_SUB_WIZARD);
     }
 
     @Override
     public void activationWizardFreeNext() {
         firstWizardState.setFirstStage(FirstStage.FINISH_INFO);
-        router.navigateTo(WIZARD_INFO_FINISH_SCREEN);
+        router.navigateTo(WIZARD_FIRST_INFO_FINISH_SCREEN);
     }
 
     @Override
     public void activationWizardBack() {
         firstWizardState.setFirstStage(FirstStage.LICENSE);
-        router.backTo(WIZARD_LICENSE_SCREEN);
+        router.backTo(WIZARD_FIRST_LICENSE_SCREEN);
     }
 
     /**
@@ -92,12 +92,12 @@ public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, 
     @Override
     public void onSuccess() {
         firstWizardState.setFirstStage(FirstStage.FINISH_INFO);
-        router.navigateTo(WIZARD_INFO_FINISH_SCREEN);
+        router.navigateTo(WIZARD_FIRST_INFO_FINISH_SCREEN);
     }
 
     @Override
     public void onBack() {
         firstWizardState.setFirstStage(FirstStage.ACTIVATION);
-        router.backTo(WIZARD_ACTIVATION_SCREEN);
+        router.backTo(WIZARD_FIRST_ACTIVATION_SCREEN);
     }
 }

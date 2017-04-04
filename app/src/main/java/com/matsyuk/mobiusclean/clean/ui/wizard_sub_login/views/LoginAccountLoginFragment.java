@@ -6,14 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.views.AccountLoginFragment;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.LOGIN_NAMED_ANNOTATION;
 
 /**
  * @author e.matsyuk

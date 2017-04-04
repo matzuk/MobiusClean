@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.first_wizard.views;
+package com.matsyuk.mobiusclean.clean.ui.wizard_first.views;
 
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.views.LoginActivity;
@@ -10,7 +10,7 @@ public class FirstLoginActivity extends LoginActivity {
 
     @Override
     protected void injectActivity() {
-//        ComponentManager.getInstance().getFirstComponent().inject(this);
+        ComponentManager.getInstance().getFirstComponent().inject(this);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.first_wizard.views;
+package com.matsyuk.mobiusclean.clean.ui.wizard_first.views;
 
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
@@ -7,7 +7,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.views.Activati
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.FIRST_NAMED_ANNOTATION;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.FIRST_NAMED_ANNOTATION;
 
 /**
  * @author e.matsyuk

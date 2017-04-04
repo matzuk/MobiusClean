@@ -2,7 +2,6 @@ package com.matsyuk.mobiusclean.clean.dagger.wizards_sub_login;
 
 import com.matsyuk.mobiusclean.clean.business.auth.IAuthInteractor;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
-import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.AccountLoginPresenter;
@@ -16,10 +15,8 @@ import dagger.Module;
 import dagger.Provides;
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.FIRST_INFO_START_NAMED_ANNOTATION;
-import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.LOGIN_NAMED_ANNOTATION;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardDaggerConstants.LOGIN_NAMED_ANNOTATION;
 import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextType.LOGIN;
-import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextType.START;
 
 /**
  * @author e.matsyuk

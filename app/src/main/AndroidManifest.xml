@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".clean.ui.first_wizard.views.FirstActivity">
+        <activity android:name=".clean.ui.wizard_first.views.FirstActivity">
         </activity>
 
         <activity android:name=".clean.ui.app_lock.views.AppLockActivity">
         </activity>
 
-        <activity android:name=".clean.ui.first_wizard.views.StartLoginActivity">
+        <activity android:name=".clean.ui.wizard_first.views.FirstLoginActivity">
         </activity>
     </application>
 
