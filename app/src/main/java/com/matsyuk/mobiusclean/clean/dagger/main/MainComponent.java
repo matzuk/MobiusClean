@@ -1,6 +1,6 @@
 package com.matsyuk.mobiusclean.clean.dagger.main;
 
-import com.matsyuk.mobiusclean.clean.dagger.first_wizard.FirstComponent;
+import com.matsyuk.mobiusclean.clean.dagger.wizard_first.FirstComponent;
 import com.matsyuk.mobiusclean.clean.ui.main.views.MainActivity;
 
 import dagger.Subcomponent;

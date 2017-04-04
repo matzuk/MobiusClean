@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.dagger.first_wizard;
+package com.matsyuk.mobiusclean.clean.dagger.wizards_common;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

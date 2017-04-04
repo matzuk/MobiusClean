@@ -1,9 +1,8 @@
 package com.matsyuk.mobiusclean.clean.utils;
 
 /**
- * Created by Евгений on 02.04.2017.
+ * @author e.matsyuk
  */
-
 public class ScreenNames {
 
     public static final String START_WIZARD = "FirstWizardManager";

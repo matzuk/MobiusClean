@@ -1,5 +1,6 @@
-package com.matsyuk.mobiusclean.clean.dagger.first_wizard;
+package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
+import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 import com.matsyuk.mobiusclean.clean.ui.first_wizard.managers.FirstWizardManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.ActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
@@ -14,7 +15,7 @@ import dagger.Module;
 import dagger.Provides;
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
 import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextType.*;
 
 /**

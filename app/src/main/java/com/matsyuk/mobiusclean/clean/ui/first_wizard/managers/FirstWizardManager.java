@@ -6,7 +6,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.wizard_part.ILice
 
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk

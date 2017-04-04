@@ -21,6 +21,8 @@
     <string name="fmt_activation_btn_code">Enter activation code</string>
     <string name="fmt_activation_btn_personal_account">To personal account</string>
     <string name="fmt_activation_btn_free">Free</string>
+    <string name="fmt_activation_success">Success login</string>
+    <string name="fmt_activation_error">Error login</string>
 
     <string name="fmt_code_activation_name">Code activation</string>
     <string name="fmt_code_activation_et_code_hint">Enter your activation code</string>

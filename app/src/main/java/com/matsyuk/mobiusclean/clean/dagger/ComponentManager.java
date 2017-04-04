@@ -3,7 +3,7 @@ package com.matsyuk.mobiusclean.clean.dagger;
 import com.matsyuk.mobiusclean.clean.dagger.app.AppComponent;
 import com.matsyuk.mobiusclean.clean.dagger.app.DaggerAppComponent;
 import com.matsyuk.mobiusclean.clean.dagger.main.MainComponent;
-import com.matsyuk.mobiusclean.clean.dagger.first_wizard.FirstComponent;
+import com.matsyuk.mobiusclean.clean.dagger.wizard_first.FirstComponent;
 
 /**
  * @author e.matsyuk

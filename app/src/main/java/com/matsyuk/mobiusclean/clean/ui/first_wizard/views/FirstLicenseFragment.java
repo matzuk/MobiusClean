@@ -13,7 +13,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.views.LicenseFrag
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.FIRST_NAMED_ANNOTATION;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.FIRST_NAMED_ANNOTATION;
 
 
 /**

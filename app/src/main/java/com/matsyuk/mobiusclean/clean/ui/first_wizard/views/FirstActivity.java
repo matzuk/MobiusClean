@@ -16,7 +16,7 @@ import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
-import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.*;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk

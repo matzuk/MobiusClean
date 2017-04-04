@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
-
-import io.reactivex.functions.Function;
 
 /**
  * @author e.matsyuk
@@ -24,11 +24,14 @@ public abstract class AccountLogin extends Fragment implements IAccountLoginView
     private Button loginButton;
     private EditText loginInput;
     private EditText passwordInput;
+    private ProgressBar progressBar;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fmt_account_login, container, false);
+
+        progressBar = (ProgressBar)view.findViewById(R.id.progress);
 
         loginInput = (EditText)view.findViewById(R.id.et_mail);
         passwordInput = (EditText)view.findViewById(R.id.et_password);
@@ -50,8 +53,8 @@ public abstract class AccountLogin extends Fragment implements IAccountLoginView
         super.onResume();
         getPresenter().bindView(this);
         getPresenter().inputData(
-                RxTextView.textChanges(loginInput).map((Function<CharSequence, String>) CharSequence::toString),
-                RxTextView.textChanges(passwordInput).map((Function<CharSequence, String>) CharSequence::toString)
+                RxTextView.textChanges(loginInput).map(CharSequence::toString),
+                RxTextView.textChanges(passwordInput).map(CharSequence::toString)
         );
     }
 
@@ -69,22 +72,26 @@ public abstract class AccountLogin extends Fragment implements IAccountLoginView
 
     @Override
     public void showSuccessLogin() {
-
+        Toast.makeText(getContext(), getString(R.string.fmt_activation_success), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showErrorLogin() {
-
+        Toast.makeText(getContext(), getString(R.string.fmt_activation_error), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showProgress(boolean show) {
-
+        if (show) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public void loginEnabled(boolean enable) {
-
+        loginButton.setEnabled(enable);
     }
 
     protected abstract IAccountLoginPresenter getPresenter();

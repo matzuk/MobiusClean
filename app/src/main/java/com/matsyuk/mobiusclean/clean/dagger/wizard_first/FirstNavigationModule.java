@@ -1,4 +1,6 @@
-package com.matsyuk.mobiusclean.clean.dagger.first_wizard;
+package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
+
+import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 
 import javax.inject.Named;
 
@@ -8,7 +10,7 @@ import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
 
-import static com.matsyuk.mobiusclean.clean.ui.first_wizard.FirstWizardConstants.FIRST_NAMED_ANNOTATION;
+import static com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardConstants.FIRST_NAMED_ANNOTATION;
 
 /**
  * @author e.matsyuk
