@@ -1,7 +1,9 @@
 package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstStage;
 import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardState;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.ActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
@@ -32,8 +34,15 @@ public class FirstWizardModule {
 
     @WizardScope
     @Provides
-    public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router) {
-        return new FirstWizardManager(router);
+    public FirstWizardState provideFirstWizardState() {
+        return new FirstWizardState(FirstStage.NONE);
+    }
+
+    @WizardScope
+    @Provides
+    public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router,
+                                                        FirstWizardState firstWizardState) {
+        return new FirstWizardManager(router, firstWizardState);
     }
 
     /**

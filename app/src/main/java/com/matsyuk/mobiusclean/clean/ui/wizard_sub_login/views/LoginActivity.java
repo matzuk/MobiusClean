@@ -39,18 +39,17 @@ public abstract class LoginActivity extends AppCompatActivity {
     @Named(LOGIN_NAMED_ANNOTATION)
     IInfoPresenter infoPresenter;
 
-    // TODO temp for first start
     @Inject
     LoginWizardManager loginWizardManager;
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
-            if (screenKey.equals(WIZARD_LOGIN_INFO_SCREEN)) {
+            if (screenKey.equals(SUB_WIZARD_LOGIN_INFO_SCREEN)) {
                 LoginInfoFragment loginInfoFragment = new LoginInfoFragment();
                 loginInfoFragment.setInfoPresenter(infoPresenter);
                 return loginInfoFragment;
-            } else if (screenKey.equals(WIZARD_LOGIN_LOGIN_SCREEN)) {
+            } else if (screenKey.equals(SUB_WIZARD_LOGIN_LOGIN_SCREEN)) {
                 LoginAccountLoginFragment loginAccountLoginFragment = new LoginAccountLoginFragment();
                 loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
                 return loginAccountLoginFragment;
@@ -81,6 +80,7 @@ public abstract class LoginActivity extends AppCompatActivity {
     protected void onResumeFragments() {
         reInjectFragments();
         super.onResumeFragments();
+        loginWizardManager.startWizard();
     }
 
     @SuppressWarnings("RestrictedApi")

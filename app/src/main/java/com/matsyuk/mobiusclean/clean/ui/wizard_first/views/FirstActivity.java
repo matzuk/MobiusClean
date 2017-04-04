@@ -31,7 +31,6 @@ public class FirstActivity extends AppCompatActivity {
     @Named(FIRST_NAMED_ANNOTATION)
     NavigatorHolder navigatorHolder;
 
-    // TODO temp for first start
     @Inject
     FirstWizardManager firstWizardManager;
 
@@ -98,6 +97,7 @@ public class FirstActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         navigatorHolder.setNavigator(navigator);
+        firstWizardManager.startWizard();
     }
 
     @Override

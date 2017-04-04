@@ -12,16 +12,22 @@ import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
  */
 public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardPart {
 
-    private Router router;
-    private ILoginWizardResult loginWizardResult;
+    private final Router router;
+    private final ILoginWizardResult loginWizardResult;
+    private final LoginWizardState loginWizardState;
 
-    // TODO move to DI
-    private LoginWizardState loginWizardState = new LoginWizardState(LoginStage.INFO);
-
-    public LoginWizardManager(Router router, ILoginWizardResult loginWizardResult) {
+    public LoginWizardManager(Router router, LoginWizardState loginWizardState, ILoginWizardResult loginWizardResult) {
         this.router = router;
+        this.loginWizardState = loginWizardState;
         this.loginWizardResult = loginWizardResult;
-        router.navigateTo(WIZARD_LOGIN_INFO_SCREEN);
+    }
+
+    public void startWizard() {
+        if (loginWizardState.getLoginStage() != LoginStage.NONE) {
+            return;
+        }
+        loginWizardState.setLoginStage(LoginStage.INFO);
+        router.navigateTo(SUB_WIZARD_LOGIN_INFO_SCREEN);
     }
 
     /**
@@ -31,11 +37,12 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
     @Override
     public void infoWizardNext() {
         loginWizardState.setLoginStage(LoginStage.LOGIN);
-        router.navigateTo(WIZARD_LOGIN_LOGIN_SCREEN);
+        router.navigateTo(SUB_WIZARD_LOGIN_LOGIN_SCREEN);
     }
 
     @Override
     public void infoWizardBack() {
+        loginWizardState.setLoginStage(LoginStage.NONE);
         router.finishChain();
     }
 
@@ -45,12 +52,14 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
 
     @Override
     public void accountLoginWizardSuccess() {
+        loginWizardState.setLoginStage(LoginStage.NONE);
         router.finishChain();
         loginWizardResult.onSuccess();
     }
 
     @Override
     public void accountLoginWizardBack() {
+        loginWizardState.setLoginStage(LoginStage.NONE);
         router.finishChain();
         loginWizardResult.onBack();
     }

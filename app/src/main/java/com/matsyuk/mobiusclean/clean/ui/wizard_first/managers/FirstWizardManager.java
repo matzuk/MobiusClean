@@ -12,15 +12,22 @@ import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 /**
  * @author e.matsyuk
  */
-public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart, IActivationWizardPart, ILoginWizardResult {
+public class FirstWizardManager implements IInfoWizardPart, ILicenseWizardPart,
+        IActivationWizardPart, ILoginWizardResult {
 
-    private Router router;
+    private final Router router;
+    private final FirstWizardState firstWizardState;
 
-    // TODO move to DI
-    private FirstWizardState firstWizardState = new FirstWizardState(FirstStage.START_INFO);
-
-    public FirstWizardManager(Router router) {
+    public FirstWizardManager(Router router, FirstWizardState firstWizardState) {
         this.router = router;
+        this.firstWizardState = firstWizardState;
+    }
+
+    public void startWizard() {
+        if (firstWizardState.getFirstStage() != FirstStage.NONE) {
+            return;
+        }
+        firstWizardState.setFirstStage(FirstStage.START_INFO);
         router.navigateTo(WIZARD_FIRST_INFO_START_SCREEN);
     }
 
