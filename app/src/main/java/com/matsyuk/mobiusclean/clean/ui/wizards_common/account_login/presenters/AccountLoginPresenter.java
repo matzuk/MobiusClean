@@ -60,11 +60,6 @@ public class AccountLoginPresenter implements IAccountLoginPresenter {
     }
 
     @Override
-    public void clickForgotPassword() {
-        accountLoginWizardPart.accountLoginWizardForgot();
-    }
-
-    @Override
     public void clickNewAccount() {
         accountLoginWizardPart.accountLoginWizardNewAccount();
     }

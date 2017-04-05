@@ -67,11 +67,6 @@ public class LoginWizardSmartRouter implements IInfoWizardPart, IAccountLoginWiz
     }
 
     @Override
-    public void accountLoginWizardForgot() {
-
-    }
-
-    @Override
     public void accountLoginWizardNewAccount() {
         loginWizardStep = REGISTRATION;
         router.navigateTo(SUB_WIZARD_LOGIN_REGISTRATION_SCREEN);

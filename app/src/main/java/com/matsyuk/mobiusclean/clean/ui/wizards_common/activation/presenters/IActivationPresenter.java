@@ -10,7 +10,6 @@ public interface IActivationPresenter {
     void bindView(IActivationView activationView);
     void unbindView();
 
-    void clickCodeActivation();
     void clickPersonalAccount();
     void clickFreeVersion();
     void clickBack();

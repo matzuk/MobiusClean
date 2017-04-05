@@ -13,7 +13,6 @@ public interface IAccountLoginPresenter {
     void unbindView();
 
     void clickLogin(String login, String password);
-    void clickForgotPassword();
     void clickNewAccount();
     void clickBack();
 

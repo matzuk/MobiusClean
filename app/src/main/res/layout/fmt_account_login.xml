@@ -52,25 +52,12 @@
         android:enabled="false"/>
 
     <Button
-        android:id="@+id/btn_forgot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="16sp"
-        android:text="@string/fmt_account_login_btn_forgot"
-        android:layout_below="@+id/btn_login"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:id="@+id/btn_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_forgot"
+        android:layout_below="@+id/btn_login"
         android:gravity="center"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         android:text="@string/fmt_account_login_btn_new_account" />

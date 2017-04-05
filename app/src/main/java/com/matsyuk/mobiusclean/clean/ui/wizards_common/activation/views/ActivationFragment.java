@@ -22,9 +22,6 @@ public abstract class ActivationFragment extends Fragment implements IActivation
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fmt_activation, container, false);
         //
-        Button codeActivationButton = (Button)view.findViewById(R.id.btn_code);
-        codeActivationButton.setOnClickListener(v -> getPresenter().clickCodeActivation());
-        //
         Button personalAccountButton = (Button)view.findViewById(R.id.btn_personal_account);
         personalAccountButton.setOnClickListener(v -> getPresenter().clickPersonalAccount());
         //

@@ -72,11 +72,6 @@ public class FirstWizardSmartRouter implements IInfoWizardPart, ILicenseWizardPa
      */
 
     @Override
-    public void activationWizardCodeActivationNext() {
-
-    }
-
-    @Override
     public void activationWizardPersonalAccountNext() {
         router.navigateTo(WIZARD_FIRST_ACCOUNT_SUB_WIZARD);
     }

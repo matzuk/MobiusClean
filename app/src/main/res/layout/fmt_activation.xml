@@ -28,19 +28,7 @@
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         android:layout_below="@+id/header"
-        android:layout_above="@+id/btn_code" />
-
-    <Button
-        android:id="@+id/btn_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_above="@+id/btn_personal_account"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="16sp"
-        android:text="@string/fmt_activation_btn_code" />
+        android:layout_above="@+id/btn_personal_account" />
 
     <Button
         android:id="@+id/btn_personal_account"

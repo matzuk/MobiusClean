@@ -26,11 +26,6 @@ public class ActivationPresenter implements IActivationPresenter {
     }
 
     @Override
-    public void clickCodeActivation() {
-        activationWizardPart.activationWizardCodeActivationNext();
-    }
-
-    @Override
     public void clickPersonalAccount() {
         activationWizardPart.activationWizardPersonalAccountNext();
     }

@@ -39,9 +39,6 @@ public abstract class AccountLoginFragment extends Fragment implements IAccountL
         loginButton = (Button)view.findViewById(R.id.btn_login);
         loginButton.setOnClickListener(v -> getPresenter().clickLogin(loginInput.getText().toString(), passwordInput.getText().toString()));
 
-        Button forgotButton = (Button)view.findViewById(R.id.btn_forgot);
-        forgotButton.setOnClickListener(v -> getPresenter().clickForgotPassword());
-
         Button newAccountButton = (Button)view.findViewById(R.id.btn_reg);
         newAccountButton.setOnClickListener(v -> getPresenter().clickNewAccount());
 
