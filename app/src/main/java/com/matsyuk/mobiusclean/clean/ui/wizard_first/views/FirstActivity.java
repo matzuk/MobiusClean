@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
-import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.smart_router.FirstWizardSmartRouter;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,7 +32,7 @@ public class FirstActivity extends AppCompatActivity {
     NavigatorHolder navigatorHolder;
 
     @Inject
-    FirstWizardManager firstWizardManager;
+    FirstWizardSmartRouter firstWizardSmartRouter;
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
         @Override
@@ -97,7 +97,7 @@ public class FirstActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         navigatorHolder.setNavigator(navigator);
-        firstWizardManager.startWizard();
+        firstWizardSmartRouter.startWizard();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers;
+package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router;
 
 /**
  * @author e.matsyuk

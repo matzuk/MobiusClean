@@ -2,10 +2,9 @@ package com.matsyuk.mobiusclean.clean.dagger.wizards_sub_login;
 
 import com.matsyuk.mobiusclean.clean.business.auth.IAuthInteractor;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginStage;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardManager;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardState;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.ILoginWizardResult;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardStep;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardSmartRouter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.AccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
@@ -27,21 +26,14 @@ import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextTyp
 public class LoginWizardModule {
 
     /**
-     * Managers
+     * Smart router
      */
 
     @WizardScope
     @Provides
-    public LoginWizardState provideLoginWizardState() {
-        return new LoginWizardState(LoginStage.NONE);
-    }
-
-    @WizardScope
-    @Provides
-    public LoginWizardManager provideLoginWizardManager(@Named(LOGIN_NAMED_ANNOTATION) Router router,
-                                                        LoginWizardState loginWizardState,
-                                                        ILoginWizardResult loginWizardResult) {
-        return new LoginWizardManager(router, loginWizardState, loginWizardResult);
+    public LoginWizardSmartRouter provideLoginWizardManager(@Named(LOGIN_NAMED_ANNOTATION) Router router,
+                                                            ILoginWizardResult loginWizardResult) {
+        return new LoginWizardSmartRouter(router, LoginWizardStep.NONE, loginWizardResult);
     }
 
     /**
@@ -51,15 +43,15 @@ public class LoginWizardModule {
     @WizardScope
     @Provides
     @Named(LOGIN_NAMED_ANNOTATION)
-    public IInfoPresenter provideLoginInfoPresenter(LoginWizardManager loginWizardManager) {
-        return new InfoPresenter(loginWizardManager, LOGIN);
+    public IInfoPresenter provideLoginInfoPresenter(LoginWizardSmartRouter loginWizardSmartRouter) {
+        return new InfoPresenter(loginWizardSmartRouter, LOGIN);
     }
 
     @WizardScope
     @Provides
     @Named(LOGIN_NAMED_ANNOTATION)
-    public IAccountLoginPresenter provideAccountLoginPresenter(LoginWizardManager loginWizardManager, IAuthInteractor authInteractor) {
-        return new AccountLoginPresenter(loginWizardManager, authInteractor);
+    public IAccountLoginPresenter provideAccountLoginPresenter(LoginWizardSmartRouter loginWizardSmartRouter, IAuthInteractor authInteractor) {
+        return new AccountLoginPresenter(loginWizardSmartRouter, authInteractor);
     }
 
 }

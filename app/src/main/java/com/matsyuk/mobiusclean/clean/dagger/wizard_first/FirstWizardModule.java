@@ -1,10 +1,9 @@
 package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
-import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstStage;
-import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardManager;
-import com.matsyuk.mobiusclean.clean.ui.wizard_first.managers.FirstWizardState;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.ILoginWizardResult;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.smart_router.FirstWizardStep;
+import com.matsyuk.mobiusclean.clean.ui.wizard_first.smart_router.FirstWizardSmartRouter;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.ILoginWizardResult;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.ActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
@@ -29,20 +28,13 @@ import static com.matsyuk.mobiusclean.clean.ui.wizards_common.info.views.TextTyp
 public class FirstWizardModule {
 
     /**
-     * Managers
+     * Smart router
      */
 
     @WizardScope
     @Provides
-    public FirstWizardState provideFirstWizardState() {
-        return new FirstWizardState(FirstStage.NONE);
-    }
-
-    @WizardScope
-    @Provides
-    public FirstWizardManager provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router,
-                                                        FirstWizardState firstWizardState) {
-        return new FirstWizardManager(router, firstWizardState);
+    public FirstWizardSmartRouter provideStartWizardManager(@Named(FIRST_NAMED_ANNOTATION) Router router) {
+        return new FirstWizardSmartRouter(router, FirstWizardStep.NONE);
     }
 
     /**
@@ -51,7 +43,7 @@ public class FirstWizardModule {
 
     @WizardScope
     @Provides
-    public ILoginWizardResult provideLoginWizardResult(Lazy<FirstWizardManager> firstWizardManagerLazy) {
+    public ILoginWizardResult provideLoginWizardResult(Lazy<FirstWizardSmartRouter> firstWizardManagerLazy) {
         return firstWizardManagerLazy.get();
     }
 
@@ -62,29 +54,29 @@ public class FirstWizardModule {
     @WizardScope
     @Provides
     @Named(FIRST_INFO_START_NAMED_ANNOTATION)
-    public IInfoPresenter provideInfoPresenterStart(FirstWizardManager firstWizardManager) {
-        return new InfoPresenter(firstWizardManager, START);
+    public IInfoPresenter provideInfoPresenterStart(FirstWizardSmartRouter firstWizardSmartRouter) {
+        return new InfoPresenter(firstWizardSmartRouter, START);
     }
 
     @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
-    public ILicensePresenter provideLicensePresenter(FirstWizardManager firstWizardManager) {
-        return new LicensePresenter(firstWizardManager);
+    public ILicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
+        return new LicensePresenter(firstWizardSmartRouter);
     }
 
     @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
-    public IActivationPresenter provideActivationPresenter(FirstWizardManager firstWizardManager) {
-        return new ActivationPresenter(firstWizardManager);
+    public IActivationPresenter provideActivationPresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
+        return new ActivationPresenter(firstWizardSmartRouter);
     }
 
     @WizardScope
     @Provides
     @Named(FIRST_INFO_FINISH_NAMED_ANNOTATION)
-    public IInfoPresenter provideInfoPresenterFinish(FirstWizardManager firstWizardManager) {
-        return new InfoPresenter(firstWizardManager, FINISH);
+    public IInfoPresenter provideInfoPresenterFinish(FirstWizardSmartRouter firstWizardSmartRouter) {
+        return new InfoPresenter(firstWizardSmartRouter, FINISH);
     }
 
 }

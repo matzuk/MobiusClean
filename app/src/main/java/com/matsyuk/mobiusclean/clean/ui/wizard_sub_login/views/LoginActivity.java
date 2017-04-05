@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
-import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardManager;
+import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardSmartRouter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
 
@@ -38,7 +38,7 @@ public abstract class LoginActivity extends AppCompatActivity {
     IInfoPresenter infoPresenter;
 
     @Inject
-    LoginWizardManager loginWizardManager;
+    LoginWizardSmartRouter loginWizardSmartRouter;
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
         @Override
@@ -73,7 +73,7 @@ public abstract class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResumeFragments() {
         super.onResumeFragments();
-        loginWizardManager.startWizard();
+        loginWizardSmartRouter.startWizard();
     }
 
     @Override

@@ -1,32 +1,33 @@
-package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers;
+package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router;
 
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.wizard_part.IAccountLoginWizardPart;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.wizard_part.IInfoWizardPart;
 
 import ru.terrakok.cicerone.Router;
 
+import static com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardStep.*;
 import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 
 /**
  * @author e.matsyuk
  */
-public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardPart {
+public class LoginWizardSmartRouter implements IInfoWizardPart, IAccountLoginWizardPart {
 
     private final Router router;
     private final ILoginWizardResult loginWizardResult;
-    private final LoginWizardState loginWizardState;
+    private LoginWizardStep loginWizardStep;
 
-    public LoginWizardManager(Router router, LoginWizardState loginWizardState, ILoginWizardResult loginWizardResult) {
+    public LoginWizardSmartRouter(Router router, LoginWizardStep loginWizardStep, ILoginWizardResult loginWizardResult) {
         this.router = router;
-        this.loginWizardState = loginWizardState;
+        this.loginWizardStep = loginWizardStep;
         this.loginWizardResult = loginWizardResult;
     }
 
     public void startWizard() {
-        if (loginWizardState.getLoginStage() != LoginStage.NONE) {
+        if (loginWizardStep != NONE) {
             return;
         }
-        loginWizardState.setLoginStage(LoginStage.INFO);
+        loginWizardStep = INFO;
         router.navigateTo(SUB_WIZARD_LOGIN_INFO_SCREEN);
     }
 
@@ -36,13 +37,13 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
 
     @Override
     public void infoWizardNext() {
-        loginWizardState.setLoginStage(LoginStage.LOGIN);
+        loginWizardStep = LOGIN;
         router.navigateTo(SUB_WIZARD_LOGIN_LOGIN_SCREEN);
     }
 
     @Override
     public void infoWizardBack() {
-        loginWizardState.setLoginStage(LoginStage.NONE);
+        loginWizardStep = NONE;
         router.finishChain();
     }
 
@@ -52,14 +53,14 @@ public class LoginWizardManager implements IInfoWizardPart, IAccountLoginWizardP
 
     @Override
     public void accountLoginWizardSuccess() {
-        loginWizardState.setLoginStage(LoginStage.NONE);
+        loginWizardStep = NONE;
         router.finishChain();
         loginWizardResult.onSuccess();
     }
 
     @Override
     public void accountLoginWizardBack() {
-        loginWizardState.setLoginStage(LoginStage.NONE);
+        loginWizardStep = NONE;
         router.finishChain();
         loginWizardResult.onBack();
     }
