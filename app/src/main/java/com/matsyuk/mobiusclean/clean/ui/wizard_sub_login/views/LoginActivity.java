@@ -10,8 +10,6 @@ import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.managers.LoginWizardMan
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -46,13 +44,9 @@ public abstract class LoginActivity extends AppCompatActivity {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
             if (screenKey.equals(SUB_WIZARD_LOGIN_INFO_SCREEN)) {
-                LoginInfoFragment loginInfoFragment = new LoginInfoFragment();
-                loginInfoFragment.setInfoPresenter(infoPresenter);
-                return loginInfoFragment;
+                return new LoginInfoFragment();
             } else if (screenKey.equals(SUB_WIZARD_LOGIN_LOGIN_SCREEN)) {
-                LoginAccountLoginFragment loginAccountLoginFragment = new LoginAccountLoginFragment();
-                loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
-                return loginAccountLoginFragment;
+                return new LoginAccountLoginFragment();
             }
             return null;
         }
@@ -78,30 +72,8 @@ public abstract class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onResumeFragments() {
-        reInjectFragments();
         super.onResumeFragments();
         loginWizardManager.startWizard();
-    }
-
-    @SuppressWarnings("RestrictedApi")
-    private void reInjectFragments() {
-        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
-        if (fragmentList == null) {
-            return;
-        }
-        for (int i = 0; i < fragmentList.size(); i++) {
-            Fragment fragment = fragmentList.get(i);
-            if (fragment instanceof LoginAccountLoginFragment) {
-                LoginAccountLoginFragment loginAccountLoginFragment =
-                        (LoginAccountLoginFragment)fragment;
-                loginAccountLoginFragment.setAccountLoginPresenter(accountLoginPresenter);
-            } else if (fragment instanceof LoginInfoFragment) {
-                LoginInfoFragment loginInfoFragment =
-                        (LoginInfoFragment)fragment;
-                loginInfoFragment.setInfoPresenter(infoPresenter);
-            }
-        }
-
     }
 
     @Override
@@ -126,6 +98,14 @@ public abstract class LoginActivity extends AppCompatActivity {
     public void onPause() {
         navigatorHolder.removeNavigator();
         super.onPause();
+    }
+
+    public IAccountLoginPresenter getAccountLoginPresenter() {
+        return accountLoginPresenter;
+    }
+
+    public IInfoPresenter getInfoPresenter() {
+        return infoPresenter;
     }
 
     protected abstract void injectActivity();
