@@ -6,5 +6,6 @@ package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router;
 public enum LoginWizardStep {
     NONE,
     INFO,
-    LOGIN
+    LOGIN,
+    REGISTRATION
 }

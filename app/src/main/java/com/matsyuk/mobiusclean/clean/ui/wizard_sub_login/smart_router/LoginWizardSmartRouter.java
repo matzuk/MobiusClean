@@ -1,6 +1,7 @@
 package com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router;
 
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.wizard_part.IAccountLoginWizardPart;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_registration.wizard_part.IAccountRegistrationWizardPart;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.wizard_part.IInfoWizardPart;
 
 import ru.terrakok.cicerone.Router;
@@ -11,7 +12,7 @@ import static com.matsyuk.mobiusclean.clean.ui.wizards_common.WizardConstants.*;
 /**
  * @author e.matsyuk
  */
-public class LoginWizardSmartRouter implements IInfoWizardPart, IAccountLoginWizardPart {
+public class LoginWizardSmartRouter implements IInfoWizardPart, IAccountLoginWizardPart, IAccountRegistrationWizardPart {
 
     private final Router router;
     private final ILoginWizardResult loginWizardResult;
@@ -72,7 +73,24 @@ public class LoginWizardSmartRouter implements IInfoWizardPart, IAccountLoginWiz
 
     @Override
     public void accountLoginWizardNewAccount() {
-
+        loginWizardStep = REGISTRATION;
+        router.navigateTo(SUB_WIZARD_LOGIN_REGISTRATION_SCREEN);
     }
 
+    /**
+     * IAccountRegistrationWizardPart
+     */
+
+    @Override
+    public void accountRegistrationWizardSuccess() {
+        loginWizardStep = NONE;
+        router.finishChain();
+        loginWizardResult.onSuccess();
+    }
+
+    @Override
+    public void accountRegistrationWizardBack() {
+        loginWizardStep = LOGIN;
+        router.backTo(SUB_WIZARD_LOGIN_LOGIN_SCREEN);
+    }
 }

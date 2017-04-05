@@ -13,5 +13,6 @@ public class WizardConstants {
 
     public static final String SUB_WIZARD_LOGIN_INFO_SCREEN = "LoginInfoScreen";
     public static final String SUB_WIZARD_LOGIN_LOGIN_SCREEN = "LoginLoginScreen";
+    public static final String SUB_WIZARD_LOGIN_REGISTRATION_SCREEN = "LoginRegistrationScreen";
 
 }

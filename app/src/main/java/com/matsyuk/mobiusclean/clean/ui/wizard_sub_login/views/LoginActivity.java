@@ -8,6 +8,7 @@ import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardSmartRouter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_registration.presenters.IAccountRegistrationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
 
 import javax.inject.Inject;
@@ -38,6 +39,10 @@ public abstract class LoginActivity extends AppCompatActivity {
     IInfoPresenter infoPresenter;
 
     @Inject
+    @Named(LOGIN_NAMED_ANNOTATION)
+    IAccountRegistrationPresenter accountRegistrationPresenter;
+
+    @Inject
     LoginWizardSmartRouter loginWizardSmartRouter;
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.start_container) {
@@ -47,6 +52,8 @@ public abstract class LoginActivity extends AppCompatActivity {
                 return new LoginInfoFragment();
             } else if (screenKey.equals(SUB_WIZARD_LOGIN_LOGIN_SCREEN)) {
                 return new LoginAccountLoginFragment();
+            } else if (screenKey.equals(SUB_WIZARD_LOGIN_REGISTRATION_SCREEN)) {
+                return new LoginAccountRegistrationFragment();
             }
             return null;
         }
@@ -106,6 +113,10 @@ public abstract class LoginActivity extends AppCompatActivity {
 
     public IInfoPresenter getInfoPresenter() {
         return infoPresenter;
+    }
+
+    public IAccountRegistrationPresenter getAccountRegistrationPresenter() {
+        return accountRegistrationPresenter;
     }
 
     protected abstract void injectActivity();

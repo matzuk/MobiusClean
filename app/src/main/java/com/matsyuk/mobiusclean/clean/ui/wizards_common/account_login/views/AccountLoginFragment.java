@@ -72,21 +72,17 @@ public abstract class AccountLoginFragment extends Fragment implements IAccountL
 
     @Override
     public void showSuccessLogin() {
-        Toast.makeText(getContext(), getString(R.string.fmt_activation_success), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getString(R.string.fmt_account_login_auth_success), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showErrorLogin() {
-        Toast.makeText(getContext(), getString(R.string.fmt_activation_error), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getString(R.string.fmt_account_login_auth_error), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showProgress(boolean show) {
-        if (show) {
-            progressBar.setVisibility(View.VISIBLE);
-        } else {
-            progressBar.setVisibility(View.GONE);
-        }
+        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     @Override

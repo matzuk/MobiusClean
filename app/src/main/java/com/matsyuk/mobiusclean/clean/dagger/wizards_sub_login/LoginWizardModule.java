@@ -7,6 +7,8 @@ import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizar
 import com.matsyuk.mobiusclean.clean.ui.wizard_sub_login.smart_router.LoginWizardSmartRouter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.AccountLoginPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_login.presenters.IAccountLoginPresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_registration.presenters.AccountRegistrationPresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.account_registration.presenters.IAccountRegistrationPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.InfoPresenter;
 
@@ -50,8 +52,17 @@ public class LoginWizardModule {
     @WizardScope
     @Provides
     @Named(LOGIN_NAMED_ANNOTATION)
-    public IAccountLoginPresenter provideAccountLoginPresenter(LoginWizardSmartRouter loginWizardSmartRouter, IAuthInteractor authInteractor) {
+    public IAccountLoginPresenter provideAccountLoginPresenter(LoginWizardSmartRouter loginWizardSmartRouter,
+                                                               IAuthInteractor authInteractor) {
         return new AccountLoginPresenter(loginWizardSmartRouter, authInteractor);
+    }
+
+    @WizardScope
+    @Provides
+    @Named(LOGIN_NAMED_ANNOTATION)
+    public IAccountRegistrationPresenter provideAccountRegistrationPresenter(LoginWizardSmartRouter loginWizardSmartRouter,
+                                                                             IAuthInteractor authInteractor) {
+        return new AccountRegistrationPresenter(loginWizardSmartRouter, authInteractor);
     }
 
 }
