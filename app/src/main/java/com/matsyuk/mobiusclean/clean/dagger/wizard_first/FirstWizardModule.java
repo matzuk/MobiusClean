@@ -1,5 +1,7 @@
 package com.matsyuk.mobiusclean.clean.dagger.wizard_first;
 
+import com.matsyuk.mobiusclean.clean.business.first_wizard.FirstWizardInteractor;
+import com.matsyuk.mobiusclean.clean.business.first_wizard.IFirstWizardInteractor;
 import com.matsyuk.mobiusclean.clean.dagger.wizards_common.WizardScope;
 import com.matsyuk.mobiusclean.clean.ui.wizard_first.smart_router.FirstWizardStep;
 import com.matsyuk.mobiusclean.clean.ui.wizard_first.smart_router.FirstWizardSmartRouter;
@@ -48,6 +50,16 @@ public class FirstWizardModule {
     }
 
     /**
+     * Interactors
+     */
+
+    @WizardScope
+    @Provides
+    public IFirstWizardInteractor provideFirstWizardInteractor() {
+        return new FirstWizardInteractor();
+    }
+
+    /**
      * Presenters
      */
 
@@ -61,8 +73,8 @@ public class FirstWizardModule {
     @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
-    public LicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
-        return new LicensePresenter(firstWizardSmartRouter);
+    public LicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter, IFirstWizardInteractor firstWizardInteractor) {
+        return new LicensePresenter(firstWizardSmartRouter, firstWizardInteractor);
     }
 
     @WizardScope

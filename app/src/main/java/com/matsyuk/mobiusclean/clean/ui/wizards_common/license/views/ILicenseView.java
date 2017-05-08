@@ -9,4 +9,8 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
  */
 @StateStrategyType(AddToEndSingleStrategy.class)
 public interface ILicenseView extends MvpView {
+
+    void showProgress();
+    void hideProgress();
+
 }
