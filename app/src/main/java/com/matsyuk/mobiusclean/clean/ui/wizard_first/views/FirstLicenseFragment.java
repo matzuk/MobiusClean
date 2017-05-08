@@ -1,7 +1,12 @@
 package com.matsyuk.mobiusclean.clean.ui.wizard_first.views;
 
+import android.os.Bundle;
+
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.matsyuk.mobiusclean.clean.dagger.ComponentManager;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.ILicensePresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.LicensePresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.views.LicenseFragment;
 
 import javax.inject.Inject;
@@ -17,12 +22,20 @@ public class FirstLicenseFragment extends LicenseFragment {
 
     @Inject
     @Named(FIRST_NAMED_ANNOTATION)
-    ILicensePresenter licensePresenter;
+    LicensePresenter licensePresenterDagger;
+
+    @ProvidePresenter
+    LicensePresenter provideLicensePresenter() {
+        return licensePresenterDagger;
+    }
+
+    @InjectPresenter
+    LicensePresenter licensePresenter;
 
     @Override
-    public void onResume() {
+    public void onCreate(Bundle savedInstanceState) {
         ComponentManager.getInstance().getFirstComponent().inject(this);
-        super.onResume();
+        super.onCreate(savedInstanceState);
     }
 
     @Override

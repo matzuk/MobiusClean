@@ -1,6 +1,5 @@
 package com.matsyuk.mobiusclean.clean.ui.wizards_common.license.views;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.ILicensePresenter;
@@ -15,7 +15,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.ILicen
 /**
  * @author e.matsyuk
  */
-public abstract class LicenseFragment extends Fragment implements ILicenseView, BackButtonListener {
+public abstract class LicenseFragment extends MvpAppCompatFragment implements ILicenseView, BackButtonListener {
 
     private Button nextButton;
 
@@ -31,21 +31,9 @@ public abstract class LicenseFragment extends Fragment implements ILicenseView, 
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        getPresenter().bindView(this);
-    }
-
-    @Override
     public boolean onBackPressed() {
         getPresenter().clickBack();
         return true;
-    }
-
-    @Override
-    public void onDestroyView() {
-        getPresenter().unbindView();
-        super.onDestroyView();
     }
 
     protected abstract ILicensePresenter getPresenter();

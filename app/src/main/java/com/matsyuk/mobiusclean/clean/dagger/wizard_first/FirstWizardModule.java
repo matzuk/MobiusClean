@@ -61,7 +61,7 @@ public class FirstWizardModule {
     @WizardScope
     @Provides
     @Named(FIRST_NAMED_ANNOTATION)
-    public ILicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
+    public LicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
         return new LicensePresenter(firstWizardSmartRouter);
     }
 

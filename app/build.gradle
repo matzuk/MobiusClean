@@ -46,4 +46,8 @@ dependencies {
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     //Cicerone
     compile 'ru.terrakok.cicerone:cicerone:1.2.1'
+    // Moxy
+    compile 'com.arello-mobile:moxy:1.5.2'
+    compile 'com.arello-mobile:moxy-app-compat:1.5.2'
+    annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.2'
 }
