@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPresenter;
@@ -16,26 +17,19 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPres
 /**
  * @author e.matsyuk
  */
-public abstract class InfoFragment extends Fragment implements IInfoView, BackButtonListener {
+public abstract class InfoFragment extends MvpAppCompatFragment implements IInfoView, BackButtonListener {
 
     private TextView infoText;
-    private Button nextButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fmt_info, container, false);
         infoText = (TextView)view.findViewById(R.id.info_text);
-        nextButton = (Button)view.findViewById(R.id.btn_next);
+        Button nextButton = (Button) view.findViewById(R.id.btn_next);
         nextButton.setOnClickListener(v -> getPresenter().clickNext());
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getPresenter().bindView(this);
     }
 
     @Override
@@ -54,12 +48,6 @@ public abstract class InfoFragment extends Fragment implements IInfoView, BackBu
     public boolean onBackPressed() {
         getPresenter().clickBack();
         return true;
-    }
-
-    @Override
-    public void onDestroyView() {
-        getPresenter().unbindView();
-        super.onDestroyView();
     }
 
     protected abstract IInfoPresenter getPresenter();
