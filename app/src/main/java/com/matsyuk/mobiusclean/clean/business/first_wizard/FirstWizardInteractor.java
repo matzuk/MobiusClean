@@ -11,7 +11,7 @@ public class FirstWizardInteractor implements IFirstWizardInteractor {
 
     @Override
     public Single<Boolean> acceptLicense() {
-        return Single.timer(5, TimeUnit.SECONDS)
+        return Single.timer(2, TimeUnit.SECONDS)
                 .map(aLong -> true);
     }
 

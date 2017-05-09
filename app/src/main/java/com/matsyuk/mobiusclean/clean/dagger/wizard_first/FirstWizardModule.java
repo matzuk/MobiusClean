@@ -79,28 +79,17 @@ public class FirstWizardModule {
         return firstWizardSmartRouterLazy.get();
     }
 
-//    @WizardScope
-//    @Provides
-//    IActivationWizardPart provideIActivationWizardPart(Lazy<FirstWizardSmartRouter> firstWizardSmartRouterLazy) {
-//        return firstWizardSmartRouterLazy.get();
-//    }
+    @WizardScope
+    @Provides
+    IActivationWizardPart provideIActivationWizardPart(Lazy<FirstWizardSmartRouter> firstWizardSmartRouterLazy) {
+        return firstWizardSmartRouterLazy.get();
+    }
 
     @WizardScope
     @Provides
     @Named(FIRST_INFO_FINISH_NAMED_ANNOTATION)
     IInfoWizardPart provideIInfoWizardPartFinish(Lazy<FirstWizardSmartRouter> firstWizardSmartRouterLazy) {
         return firstWizardSmartRouterLazy.get();
-    }
-
-    /**
-     * Presenters
-     */
-
-    @WizardScope
-    @Provides
-    @Named(FIRST_NAMED_ANNOTATION)
-    IActivationPresenter provideActivationPresenter(FirstWizardSmartRouter firstWizardSmartRouter) {
-        return new ActivationPresenter(firstWizardSmartRouter);
     }
 
 }

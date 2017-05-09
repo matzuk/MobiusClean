@@ -1,6 +1,5 @@
 package com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.views;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.matsyuk.mobiusclean.R;
 import com.matsyuk.mobiusclean.clean.ui.common.BackButtonListener;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IActivationPresenter;
@@ -15,7 +15,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.activation.presenters.IAc
 /**
  * @author e.matsyuk
  */
-public abstract class ActivationFragment extends Fragment implements IActivationView, BackButtonListener {
+public abstract class ActivationFragment extends MvpAppCompatFragment implements IActivationView, BackButtonListener {
 
     @Nullable
     @Override
@@ -32,21 +32,9 @@ public abstract class ActivationFragment extends Fragment implements IActivation
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        getPresenter().bindView(this);
-    }
-
-    @Override
     public boolean onBackPressed() {
         getPresenter().clickBack();
         return true;
-    }
-
-    @Override
-    public void onDestroyView() {
-        getPresenter().unbindView();
-        super.onDestroyView();
     }
 
     protected abstract IActivationPresenter getPresenter();
