@@ -12,6 +12,7 @@ import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.IInfoPres
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.info.presenters.InfoPresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.ILicensePresenter;
 import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.presenters.LicensePresenter;
+import com.matsyuk.mobiusclean.clean.ui.wizards_common.license.wizard_part.ILicenseWizardPart;
 
 import javax.inject.Named;
 
@@ -70,11 +71,17 @@ public class FirstWizardModule {
         return new InfoPresenter(firstWizardSmartRouter, START);
     }
 
+//    @WizardScope
+//    @Provides
+//    @Named(FIRST_NAMED_ANNOTATION)
+//    public LicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter, IFirstWizardInteractor firstWizardInteractor) {
+//        return new LicensePresenter(firstWizardSmartRouter, firstWizardInteractor);
+//    }
+
     @WizardScope
     @Provides
-    @Named(FIRST_NAMED_ANNOTATION)
-    public LicensePresenter provideLicensePresenter(FirstWizardSmartRouter firstWizardSmartRouter, IFirstWizardInteractor firstWizardInteractor) {
-        return new LicensePresenter(firstWizardSmartRouter, firstWizardInteractor);
+    public ILicenseWizardPart provideILicenseWizardPart(Lazy<FirstWizardSmartRouter> firstWizardSmartRouterLazy) {
+        return firstWizardSmartRouterLazy.get();
     }
 
     @WizardScope
